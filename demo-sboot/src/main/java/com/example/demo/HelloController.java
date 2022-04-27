@@ -13,5 +13,10 @@ public class HelloController {
 	String hello() {
 		return "Hello from my spring boot application!";
 	}
+@RequestMapping("/tools")
+String mytools() {
+	return "Hello from my spring boot application Tool Application";
+	
+}
 
 }
