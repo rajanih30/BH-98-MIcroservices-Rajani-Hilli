@@ -7,20 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+@Table(name = "MYUSER")
 @Entity
-@Table(name = "MYUSERNEW")
 public class User {
  
 	private @Id @GeneratedValue long id;
 	private String name;
-	private long marks;
-	User() {}
-	public User(long id, String name, long marks) {
+	User(){}
+	public User(long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.marks = marks;
 	}
 	public long getId() {
 		return id;
@@ -34,19 +31,13 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getMarks() {
-		return marks;
-	}
-	public void setMarks(long marks) {
-		this.marks = marks;
-	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", marks=" + marks + "]";
+		return "User [id=" + id + ", name=" + name + "]";
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, marks, name);
+		return Objects.hash(id, name);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -57,24 +48,10 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return id == other.id && marks == other.marks && Objects.equals(name, other.name);
+		return id == other.id && Objects.equals(name, other.name);
 	}
 	
-	public String getGrade()
-	{
-		if(marks>= 90 && marks<=100) 
-			return name + " got Grade-A";
-		
-			if(marks>= 80 && marks<=90) 
-			return name +  " got Grade-B";
-			
-			if(marks>= 70 && marks<=80) 
-				return name +  " got Grade-C";
-				
-				if(marks>= 60 && marks<=70) 
-					return name +  " got Grade-D";
-			
-		return name + " is failed";
-		}
-		
+	
+	
+	
 }
